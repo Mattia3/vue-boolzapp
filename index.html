@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vue-Boolzap</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+</head>
+
+<body>
+  <div id="root">
+    <div class="container-background">
+      <div class="header-background">
+
+        <div class="container-generale">
+
+          <div class="container-left">
+            <!--Inizio Nome Utente-->
+            <div class="container-icon-user">
+              <div class="logo-user">
+                <img src="img/avatar_io.jpg" alt="Avatar-io">
+              </div>
+
+              <div class="name-user">
+                <h4>Nome Utente</h4>
+              </div>
+
+              <div class="icon-message">
+                <i class="fas fa-redo-alt"></i>
+                <i class="fas fa-comment-alt"></i>
+                <i class="fas fa-ellipsis-v"></i>
+              </div>
+            </div>
+            <!--Fine Nome Utente-->
+
+            <!--Inizio link -->
+            <div class="alert-link">
+              <div class="icon-link">
+                <i class="far fa-bell-slash"></i>
+              </div>
+              <div>
+                <p>Ricevi notifiche di nuovi messaggi</p>
+                <a href="#" class="text-color">Attiva notifiche desktop</a>
+              </div>
+            </div>
+            <!--Fine link -->
+
+            <!--Inizio search-->
+            <div class="search-user">
+              <input class="Imput-search" type="text" placeholder="Cerca ho inizia una nuova chat">
+            </div>
+            <!--Fine search-->
+
+
+            <!--Inizio chat-text-->
+            <div class="user-text">
+              <div class="container-grow" v-for="card, i in contacts">
+                <div class="container-card">
+                  <img :src="card.avatar" alt="">
+                </div>
+                <div class="container-name-text">
+                  <h3> {{ card.name }}</h3>
+                  <h5 class="text-color">{{ card.message[card.message.length -1].text }}</h5>
+                </div>
+                <div class="text-date">
+                  <p class="text-color">{{ card.message[card.message.length -1].date }}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!--fine chat-text-->
+          <div class="container-right">
+            <div class="container-title">
+              <div class="logo-user-2">
+                <img src="img/avatar_io.jpg" alt="Avatar-io">
+              </div>
+
+              <div class="name-user-2">
+                <h4>Nome Utente</h4>
+                <p class="text-color">Ultimo accesso oggi alle 13:45 il 21/08/2020</p>
+              </div>
+
+              <div class="icon-message">
+                <i class="fas fa-redo-alt"></i>
+                <i class="fas fa-comment-alt"></i>
+                <i class="fas fa-ellipsis-v"></i>
+              </div>
+            </div>
+
+            <div class="container-central">
+              <div class="text-central">
+                <p>Hai portato a spasso il cane?</p>
+              </div>
+              <div class="text-central-2">
+                <p>Tutto fatto!</p>
+              </div>
+
+            </div>
+
+            <div class="container-final">
+              <div class="icon-final">
+                <i class="far fa-grin-alt"></i>
+              </div>
+
+              <div class="input-final">
+                <input type="text" placeholder="Scrivi un messaggio">
+              </div>
+
+              <div class="icon-final">
+                <i class="fas fa-microphone"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="js/script.js"></script>
+</body>
+
+</html>
