@@ -58,7 +58,7 @@
 
             <!--Inizio chat-text-->
             <div class="user-text">
-              <div class="container-grow" v-for="card, i in contacts">
+              <div class="container-grow" v-for="card in contacts" @click="onClickChat(card)">
                 <div class="container-card">
                   <img :src="card.avatar" alt="">
                 </div>
@@ -80,7 +80,7 @@
               </div>
 
               <div class="name-user-2">
-                <h4>Nome Utente</h4>
+                <h4>{{ activeChat }}</h4>
                 <p class="text-color">Ultimo accesso oggi alle 13:45 il 21/08/2020</p>
               </div>
 

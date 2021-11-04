@@ -83,6 +83,14 @@ const vueApp = new Vue ({
           }
         ]
       }
-    ]
+    ],
+
+    activeChat: null,
+  },
+
+  methods:{
+    onClickChat(chatDaCliccare){
+      this.activeChat = chatDaCliccare;
+    }
   }
 })
