@@ -98,10 +98,17 @@ const vueApp = new Vue ({
       let textPush = {date:"10/01/2020 15:30:55",
       text: this.array,
       status:"sent"}
-      this.contacts.push(textPush)
+      this.activeChat.message.push(textPush)
+      this.array=""
+      setTimeout(() => {
+        let arrayFrasi = ["Ci vediamo venerdi", "ok", "Andiamo a fare la spesa", "GGWP"]
+        let mathFrasi = Math.round(Math.random() * 3)
+        let textPush = {date:"10/01/2020 15:30:55",
+          text: arrayFrasi[mathFrasi],
+          status:"received"}
+          this.activeChat.message.push(textPush)
+      }, 3000);
     }
-    
-    
   },
 
   created: function(){

@@ -100,12 +100,14 @@
   display: flex;
   background-color: rgba(233,234,234,255);;
   padding: 9px;
+  position: relative;
 }
 
 .Imput-search{
   width: 100%;
   height: 100%;
   padding: 10px;
+  padding-left: 25px;
 }
 
 .text-color{
@@ -146,6 +148,7 @@
 
 .text-date{
   padding: 10px 4px;
+  font-size: 10px;
 }
 
 .container-grow{
@@ -168,6 +171,7 @@
   width: 100%;
   background-color: rgba(233,234,234,255);
   border-left: 1px solid lightgray;
+  flex-shrink: 0;
 }
 
 .logo-user-2{
@@ -202,6 +206,7 @@
   height: 70px;
   display: flex;
   background-color: rgba(243,238,233,255);
+  flex-shrink: 0;
 }
 
 .icon-final{
@@ -225,6 +230,7 @@
   width: 100%;
   margin: 5px 0;
   border-radius: 10px;
+  padding-left: 10px;
 }
 
 .text-central {
@@ -256,4 +262,11 @@
 .active{
   background-color:lightgray;
   cursor: auto;
+}
+
+.search-user i {
+  position: absolute;
+  bottom: 20px;
+  left: 16px;
+  color: gray;
 }
