@@ -151,6 +151,7 @@
 .container-grow{
   display: flex;
   border-bottom: 1px solid lightgray;
+  cursor: pointer;
 }
 
 /*Fine parte sinistra**/
@@ -250,4 +251,9 @@
   justify-content: start;
   display: flex;
   margin: 25px 35px;
+}
+
+.active{
+  background-color:lightgray;
+  cursor: auto;
 }

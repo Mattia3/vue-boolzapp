@@ -26,7 +26,7 @@
               </div>
 
               <div class="name-user">
-                <h4>Nome Utente</h4>
+                <h4>Mattia</h4>
               </div>
 
               <div class="icon-message">
@@ -58,7 +58,8 @@
 
             <!--Inizio chat-text-->
             <div class="user-text">
-              <div class="container-grow" v-for="card in contacts" @click="onClickChat(card)">
+              <div class="container-grow" v-for="card in contacts" @click="onClickChat(card)"
+                :class="{active: activeChat.name === card.name}">
                 <div class="container-card">
                   <img :src="card.avatar" alt="">
                 </div>
@@ -76,12 +77,13 @@
           <div class="container-right">
             <div class="container-title">
               <div class="logo-user-2">
-                <img src="img/avatar_io.jpg" alt="Avatar-io">
+                <img :src="activeChat.avatar" alt="Avatar-io">
               </div>
 
               <div class="name-user-2">
-                <h4>{{ activeChat }}</h4>
-                <p class="text-color">Ultimo accesso oggi alle 13:45 il 21/08/2020</p>
+                <h4>{{ activeChat.name }}</h4>
+                <p class="text-color" v-if="activeChat.message">{{activeChat.message[activeChat.message.length
+                  -1].date}}</p>
               </div>
 
               <div class="icon-message">
@@ -92,12 +94,11 @@
             </div>
 
             <div class="container-central">
-              <div class="text-central">
-                <p>Hai portato a spasso il cane?</p>
+              <div class="text-central" v-for="message in activeChat.message"
+                :class="{'text-central-2': message.status === 'received'}">
+                <p>{{message.text}}</p>
               </div>
-              <div class="text-central-2">
-                <p>Tutto fatto!</p>
-              </div>
+
 
             </div>
 
@@ -107,7 +108,7 @@
               </div>
 
               <div class="input-final">
-                <input type="text" placeholder="Scrivi un messaggio">
+                <input type="text" placeholder="Scrivi un messaggio" v-on:keyup.enter="onAddClick" v-model="array">
               </div>
 
               <div class="icon-final">

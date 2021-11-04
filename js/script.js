@@ -85,12 +85,27 @@ const vueApp = new Vue ({
       }
     ],
 
-    activeChat: null,
+    activeChat: {},
+    array: ""
   },
 
   methods:{
     onClickChat(chatDaCliccare){
       this.activeChat = chatDaCliccare;
+    },
+
+    onAddClick(){
+      let textPush = {date:"10/01/2020 15:30:55",
+      text: this.array,
+      status:"sent"}
+      this.contacts.push(textPush)
     }
-  }
+    
+    
+  },
+
+  created: function(){
+    console.log("created")
+    this.activeChat = this.contacts[0]
+  },
 })
