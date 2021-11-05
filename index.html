@@ -51,7 +51,8 @@
 
             <!--Inizio search-->
             <div class="search-user">
-              <input class="Imput-search" type="text" placeholder="Cerca ho inizia una nuova chat">
+              <input class="Imput-search" type="text" placeholder="Cerca ho inizia una nuova chat" v-model="filterText"
+                @keydown="getAdd()">
               <i class="fas fa-search"></i>
             </div>
             <!--Fine search-->
@@ -59,7 +60,7 @@
 
             <!--Inizio chat-text-->
             <div class="user-text">
-              <div class="container-grow" v-for="card in contacts" @click="onClickChat(card)"
+              <div class="container-grow" v-for="card in getAdd()" @click="onClickChat(card)"
                 :class="{active: activeChat.name === card.name}">
                 <div class="container-card">
                   <img :src="card.avatar" alt="">
@@ -94,14 +95,12 @@
               </div>
             </div>
 
-            <div class="container-central">
+            <div class="container-central" ref="containerCentral">
               <div class="text-central" v-for="message in activeChat.message"
                 :class="{'text-central-2': message.status === 'received'}">
-                <p>{{message.text}}</p>
+                <p>{{message.text}} <br>{{message.date}}</p>
 
               </div>
-
-
             </div>
 
             <div class="container-final">

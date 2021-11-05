@@ -86,8 +86,10 @@ const vueApp = new Vue ({
     ],
 
     activeChat: {},
-    array: ""
+    array: "",
+    filterText:"",
   },
+
 
   methods:{
     onClickChat(chatDaCliccare){
@@ -107,8 +109,23 @@ const vueApp = new Vue ({
           text: arrayFrasi[mathFrasi],
           status:"received"}
           this.activeChat.message.push(textPush)
+          this.scrollToBottom();
       }, 3000);
-    }
+      this.scrollToBottom();
+    },
+
+    getAdd(){
+      return this.contacts.filter((contact) => {
+        return contact.name.toLowerCase().includes(this.filterText.toLowerCase().trim())
+      })
+    },
+
+    scrollToBottom() {
+      setTimeout(() => {
+        this.$refs.containerCentral.scrollTop =
+          this.$refs.containerCentral.scrollHeight;
+      }, 0);
+    },
   },
 
   created: function(){
